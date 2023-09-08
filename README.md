@@ -6,3 +6,4 @@
 </ul>
 
 <h1> Image Captioning with CLIP Prefix Caption Model on Traffy Fondue Datasets </h1>
+In this project, the purpose is to generate the captions from images. And use that caption to do some things such as search for images from similar captions or classify the image from its caption.
