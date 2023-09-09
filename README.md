@@ -57,12 +57,24 @@ In this project, the purpose is to generate the captions from images. And use th
   <b> Overview </b>
   <li> Fine-tuning Wav2Vec2 </li>
     <ul>
-      <li>Black tea</li>
-      <li>Green tea</li>
+      <li> EDA and Cleaning Datasets </li>
+      <li> Convert datasets into PyArrow format </li>
+      <li> Create tokenizer and feature extractor </li>
+      <li> Create features for input to Model </li>
+      <li> Download and config pretrained model </li>
+      <li> Prepared to train </li>
+      <li> Train and Validation </li>
+      <li> Save checkpoint </li>
+      <li> Resume training </li>
     </ul>
   <li> Make an API Service </li>
     <ul>
-      <li>Black tea</li>
-      <li>Green tea</li>
+      <li> Prerequisite </li>
+      <li> Convert model to ONNX format </li>
+      <li> Deploying on Triton Server </li>
+      <li> Create API with FastAPI + Docker (also implement VAD and noise reduction) </li>
+      <li> Example: Transcribe via audio file upload </li>
+      <li> Realtime speech transribe </li>
+      <li> Example: Transcribe via input from microphone </li>
     </ul>
 </ul>
