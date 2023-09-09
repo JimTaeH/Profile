@@ -52,3 +52,8 @@ In this project, the purpose is to generate the captions from images. And use th
 <p> It is not good enough to do the explicit clusters of images by using only prefix embeddings (as you can see in the embeddings projector). So, in my opinion, we need to fine-tune model for a better result or suitable for Thai context and caption. And suggestion for this work, In terms of actual implementation guidelines, it may start by taking image data that the system already has and creating Embedding Spaces first so that the system has clusters of information and categories. Then when new images are input Those new images are converted into values for Embedding and compared to existing data groups to determine what category the new images fall into, etc. This should help Traffy Fondue to group and classify problems from the images. </p>
 
 <h1> Training Wav2Vec 2.0 XLSR-53 on Large Thai Language Datasets and Deploying on Triton Server </h1>
+<p> In this project, I am working on fine-tuning Wav2Vec 2.0 XLSR-53 and deploying it on Triton Server, and making API service using FastAPI with Docker. This is almost end-to-end project for the ASR system! </p>
+<ul>
+  <b> Overview </b>
+  <li>  </li>
+</ul>
