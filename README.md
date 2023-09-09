@@ -20,7 +20,11 @@ In this project, the purpose is to generate the captions from images. And use th
 </div>
 
 <h3> Our methodology in this experiments </h3>
-<p> In this experiments, we starting from  </p>
-<!-- <div align="center">
-  <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/Pic%20CLIP%20CAP%202.png?alt=media&token=91bf01ff-9c45-427d-8f71-483041f30c88">
-</div> -->
+<p> In this experiment, we started by collecting and preparing datasets. Collecting the data from #Traffy x TeamChadChart website. They provide CSV files that contain many attributes. We select only "Photo" (image URL) and comment (text prompt by user). Then download all images locally for convenience to read and pass into the model. We will get images and its caption (assumes user comment as caption)</p>
+<p> Then create Python virtual environment and install all dependencies <a href="https://github.com/JimTaeH/PrefixEmbeddingCLIPCAP"> detail in this repository </a>.</p> 
+<p> And download pretrained model of CLIP, GPT-2 tokenizer, and the Mapping Network (In this work we use only pretrained weights. No fine-tuning because limitation of hardware and data.)</p>
+<p> Finally, we have to verify quality of generated caption by metrics BLEU and ROUGE. So we feed 6,001 images into model and generate 6,001 captions. We need to translate user's comment into Thai because model can only generate English caption (without fine-tune). After done everythings we get the result following below table. </p>
+<div align="center">
+  <p> Result </p>
+  <img width="695" hight="631" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/messageImage_1694245525728.jpg?alt=media&token=7271d6b7-4b36-4dc0-9487-a4bf7c05575e">
+</div>
