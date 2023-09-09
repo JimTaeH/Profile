@@ -55,5 +55,14 @@ In this project, the purpose is to generate the captions from images. And use th
 <p> In this project, I am working on fine-tuning Wav2Vec 2.0 XLSR-53 and deploying it on Triton Server, and making API service using FastAPI with Docker. This is almost end-to-end project for the ASR system! </p>
 <ul>
   <b> Overview </b>
-  <li>  </li>
+  <li> Fine-tuning Wav2Vec2 </li>
+    <ul>
+      <li>Black tea</li>
+      <li>Green tea</li>
+    </ul>
+  <li> Make an API Service </li>
+    <ul>
+      <li>Black tea</li>
+      <li>Green tea</li>
+    </ul>
 </ul>
