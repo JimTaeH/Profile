@@ -35,4 +35,17 @@ In this project, the purpose is to generate the captions from images. And use th
 <p> As you can see in the table, the scores are very low because the user comments (Ground Truth) aren't directly caption of images. So it is hard to determine that the generated caption (Predicted) is correct. With this result, we cannot use it to generate captions and classify problem categories. (And sometimes it generate bad or non related caption.)</p>
 
 <h3> Our Second Approach is using Prefix embedding and doing UMAP to see how it clusters. </h3>
-<p> In this approach, we input images into CLIP and send image features into the Mapping Network to create prefix embedded. After this, instead of send it to GPT-2. We reduce dimensional complexity with UMAP and do some standard scaler to prefix embedded. And send this value to Wandb.ai for create   </p>
+<p> In this approach, we input images into CLIP and send image features into the Mapping Network to create prefix embedded. After this, instead of send it to GPT-2. We reduce dimensional complexity with UMAP and do some standard scaler to prefix embedded. And send this value to Wandb.ai for create clustering visualization</p>
+<div align="center">
+  <h3> Process for create prefix embeddings for visualize embedding projector </h3>
+  <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/ClipCapEmbedding2.png?alt=media&token=33782d70-9581-4a90-89de-9ac77a4fc820">
+</div>
+<div align="center">
+  <h3> Embeddings Projector: Example of clusters </h3>
+  <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/messageImage_1694251662904.jpg?alt=media&token=29831c33-1ad9-45f4-9197-8cf4c0757691">
+</div>
+<div align="center">
+  <h3> Example of similar images in the same groups of promblem </h3>
+  <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/WandB-Embedding_Projector1.png?alt=media&token=bf7de463-aaea-4372-a51d-a3d15e71b10c">
+</div>
+<p> However, it is not good enough to do the explicit clusters of images by using only prefix embeddings (as you can see in the embrddings projector). So, in my opinion we need to fine-tuning model for the better result or suitable for Thai context and caption. And suggestion for this work, In terms of actual implementation guidelines, it may start by taking image data that the system already has and creating Embedding Spaces first so that the system has clusters of information and categories. Then when new images are input Those new images are converted into values for Embedding and compared to existing data groups to determine what category the new images fall into, etc. This should help Traffy Fondue to grouping and classify problem from the images.</p>
