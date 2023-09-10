@@ -218,5 +218,7 @@ I am using pyaudio to create streaming input from microphone. By receiving audio
 ### Example: Transcribe via input from microphone
 
 
-https://github.com/JimTaeH/Profile/assets/60215727/3e9c1995-81c5-482e-84bb-b92a470e9c59
+https://github.com/JimTaeH/Profile/assets/60215727/3e9c1995-81c5-482e-84bb-b92a470e9c59   
+
+# Thanks for Reading. I will share more project and update more detail in the future. =)
 
