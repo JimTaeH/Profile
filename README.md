@@ -62,7 +62,6 @@ In this project, the purpose is to generate the captions from images. And use th
       <li> Create tokenizer and feature extractor </li>
       <li> Create features for input to Model </li>
       <li> Download and config pretrained model </li>
-      <li> Prepared to train </li>
       <li> Train and Validation </li>
       <li> Save checkpoint </li>
       <li> Resume training </li>
@@ -141,3 +140,21 @@ model.gradient_checkpointing_enable()
 model.config.ctc_zero_infinity = True
 </code>
 <p> The code same as the Hugging Face blog post except for model.gradient_checkpointing_enable() and model.config.ctc_zero_infinity = True. because these two configs help to reduce memory usage when training and protect vanishing loss. </p>
+
+<h3> Train and Validation </h3>
+<p> In this part, I am training the Wav2Vec2 model with PyTorch using DataParallel method. Before training and validation loop I have to prepare following this </p>
+<ul>
+  <li> Load prepared datasets and set format to torch tensor. </li>
+  <li> Prepared collator function for dynamic padding to input values and label ids. </li>
+  <li> Using PyTorch dataloader to wrap datasets and collator function together and set batch size. </li>
+  <li> Prepared optimizer and scheduler (to control learning rate). </li>
+  <li> Load WER and CER metrics. </li>
+</ul>
+<p><br /> When prepared all things successfully, I started writing a training and validation loop (May not share code here...). So the first loop is to specify how many epochs I want to train. Inside it will have a training and validation loop. Each loop enumerates on batch of train and validation datasets. At the end of each epoch I will check if model has better scores on CER (Characters Error Rate) and WER (Words Error Rate) then save it checkpoint using </p>
+<code> torch.save({'epoch': EPOCH,
+                    'best_epoch': num_epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'CER': best_cer,
+                    'WER': best_wer}, ckp_path)
+</code>
