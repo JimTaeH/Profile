@@ -78,3 +78,5 @@ In this project, the purpose is to generate the captions from images. And use th
       <li> Example: Transcribe via input from microphone </li>
     </ul>
 </ul>
+<h3> EDA and Cleaning Datasets (Cannot share related code and data)</h3>
+<p> In this EDA part, I am just checking duration of audio files in datasets to see their distribution. To get a duration of audio I can use size of the audio array divided by it sample rate. These NECTEC datasets have the lowest duration at 0 seconds and the highest is about 4:26 minutes. Facebook research recommends using audio that has durations of 10-30 seconds. So I keep only audio file that has a duration of 1-30 seconds because I want to keep the amount of audio files in the dataset (with this selection the dataset lose audio files only 1,516 files from many hundred thousand files). And model still work with no problem because Wav2Vec2 need to do masking for every 25ms. So 1 seconds audio still fine. </p>
