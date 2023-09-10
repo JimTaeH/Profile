@@ -195,7 +195,15 @@ This is a simple API for transcribing audio files into text transcription. Start
 
 Triton Server receives data from the client and starts preprocessing to create input values. Then feed input values into model to calculate output. Finally send output to postprocessing for decode-to-text transcription and response back to the client. Client will send text transcription to the user.
 ### Example
-<audio controls>
-  <source src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/COF001_Pa001_001.mp3?alt=media&token=725e1ab1-8536-4922-8c7f-00849766e9ae" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
+This is the first audio file in video.  
+
+https://github.com/JimTaeH/Profile/assets/60215727/473666cb-dfb7-4d60-a2cd-42458cacd477  
+
+This is the second audio file in video.  
+
+https://github.com/JimTaeH/Profile/assets/60215727/fdee1ce5-e604-4fb1-8dda-852dd8ecee9a  
+
+This is the third audio file in video.  
+
+https://github.com/JimTaeH/Profile/assets/60215727/5a3c846b-e8d5-4f24-bb80-067200c8c27b
+
