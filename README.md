@@ -102,7 +102,14 @@ In this project, the purpose is to generate the captions from images. And use th
 
 <h3> Create tokenizer and feature extractor </h3>
 <p> Creating the tokenizer, I am using all characters in datasets which is Thai and English characters and number as a token. And adding [PAD] for padding sentences to the same length, [UNK] for unknown words, and | replace for " " (whitespaces). And feature extractor, I am create by following this </p>
-<code>feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, # Channel of source audio
-                                             sampling_rate=16000, # Sample Rate
+<code>feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1,
+                                             sampling_rate=16000,
                                              padding_value=0.0, 
                                              do_normalize=True, return_attention_mask=True) </code>
+<ul> <br /> Reference from <a href="https://huggingface.co/blog/fine-tune-wav2vec2-english"> Hugging Face Blog Post </a> 
+  <li> feature_size: Speech models take a sequence of feature vectors as an input. While the length of this sequence obviously varies, the feature size should not. In the case of Wav2Vec2, the feature size is 1 because the model was trained on the raw speech signal </li>
+  <li> sampling_rate: The sampling rate at which the model is trained on. </li>
+  <li> padding_value: For batched inference, shorter inputs need to be padded with a specific value </li>
+  <li> do_normalize: Whether the input should be zero-mean-unit-variance normalized or not. Usually, speech models perform better when normalizing the input </li>
+  <li> return_attention_mask: Whether the model should make use of an attention_mask for batched inference. </li>
+</ul>
