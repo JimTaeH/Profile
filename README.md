@@ -96,3 +96,13 @@ In this project, the purpose is to generate the captions from images. And use th
 <p> <ins> Check abbreviation </ins> I need to verify the abbreviation and whether it pronounces that is related or not. For example, if พ.ศ. in transcription and in the audio file said พ.ศ. this should be fine. But if it said พุทธศักราช this should be fixed. </p>
 <p><ins> Clean special characters </ins> For a special characters that doesn't have the pronounces I will remove it all. Example !, ?, @, *, # etc. </p>
 <p><ins> Verify correctness of dataset </ins> Finally, checking audio files and transcription again to make sure that haven't any error anymore. </p>
+
+<h3> Convert datasets into PyArrow format </h3>
+<p> In this part, I will split the dataset into train and validation sets (we already have another test set). To separate dataset, I shuffle it and cut it into 90% for train and 10% for validation. Then convert it into .arrow format (Python Apache Arrow). This will be able to read and write data with the Datasets library which is suitable for large datasets (low RAM required, fast and convenient when processing data). </p>
+
+<h3> Create tokenizer and feature extractor </h3>
+<p> Creating the tokenizer, I am using all characters in datasets which is Thai and English characters and number as a token. And adding [PAD] for padding sentences to the same length, [UNK] for unknown words, and | replace for " " (whitespaces). And feature extractor, I am create by following this </p>
+<code>feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, 
+                                             sampling_rate=16000, 
+                                             padding_value=0.0, 
+                                             do_normalize=True, return_attention_mask=True) </code>
