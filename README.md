@@ -179,3 +179,7 @@ We must install all of the following on the host machine to create API with dock
 ONNX is the Open Neural Network Exchange Format which is designed to represent any type of Machine Learning and Deep Learning model. With this ONNX our model will be easy to deploy on any machine. And PyTorch has a function that support to convert model to ONNX called ```torch.onnx.export``` [Example here](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html).
 
 ### Deploying on Triton Server
+First, What is Triton Server? Triton Inference Server is an open source inference serving software that streamlines AI inferencing. Triton enables teams to deploy any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. [More detail here](https://github.com/triton-inference-server/server).  
+To deploy model on Triton Server we need to have NVIDIA Container Toolkit which requires NVIDIA Drivers. Then prepared ONNX model and config file that was written in Triton Server format. Also preprocessing and postprocessing can add to Triton Server. All of models and pre/post processing we have on Triton it called ensemble models. The Triton Server can receive and respond to requests with HTTP or GRPC. Which is GRPC faster at inference than HTTP because it uses protocol buffers (Protobuf) that simple, small, and faster than JSON or XML.
+
+### Create API with FastAPI + Docker (also implement VAD and noise reduction)
