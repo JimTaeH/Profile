@@ -64,6 +64,7 @@ In this project, the purpose is to generate the captions from images. And use th
       <li> Download and config pretrained model </li>
       <li> Train, Validation, and Save checkpoint </li>
       <li> Resume training </li>
+      <li> Create n-grams language model to improve performance </li>
     </ul>
   <li> Make an API Service </li>
     <ul>
@@ -162,4 +163,15 @@ model.config.ctc_zero_infinity = True
 <h3> Resume training </h3>
 <p> Just load the model and optimizer state dict and set how many epochs to continue. Then follow the same steps and code in the first train and validation loop. </p>
 
-<h2> Make an API Service </h2>
+<h3> Create n-grams language model to improve performance </h3>
+<p> You can follow this link to see example and how to <a href="https://colab.research.google.com/drive/1Wvl50XiA9-gVlr2snQEuPC-3GRbRxOGf?usp=sharing"> Create N-grams LanguageModel (Colab) </a>. The language model that we get from this part is in .arpa format which is building using KenLM program. We can convert this to .bin for more memory savings and compatible to run on any environment. </p>
+
+## Make an API Service
+### Prerequisite
+We must install all of the following on the host machine to create API with docker and enable the GPU.
+* [Docker](https://docs.docker.com/engine/install/) Select your OS and following the instruction.
+* [Docker Compose](https://docs.docker.com/compose/install/) follow the instruction.
+* [Nvidia Drivers](https://www.nvidia.com/download/index.aspx) Select your GPU and OS specification in the drop-down menu. Then download and install it following by instructions. But in case Windows OS + WSL2 with Ubuntu installed. You must install the Nvidia driver on your Windows system only. Don't install it in WSL2 because WSL2 basically sees the Nvidia driver in Windows.
+* [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#docker) Follow this documentation (But you can skip that setting up docker because we already installed that.)
+* [Download PyTorch (.whl) (Optional)](https://download.pytorch.org/whl/torch/) Because sometimes it has a network error when installing Torch which is a big file size. To fix it I recommend downloading the .whl file and installing from locally. (Version: torch-2.0.1+cu118-cp38-cp38-linux_x86_64.whl)
+
