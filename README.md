@@ -102,7 +102,7 @@ In this project, the purpose is to generate the captions from images. And use th
 
 <h3> Create tokenizer and feature extractor </h3>
 <p> Creating the tokenizer, I am using all characters in datasets which is Thai and English characters and number as a token. And adding [PAD] for padding sentences to the same length, [UNK] for unknown words, and | replace for " " (whitespaces). And feature extractor, I am create by following this </p>
-<code>feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, 
-                                             sampling_rate=16000, 
+<code>feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, # Channel of source audio
+                                             sampling_rate=16000, # Sample Rate
                                              padding_value=0.0, 
                                              do_normalize=True, return_attention_mask=True) </code>
