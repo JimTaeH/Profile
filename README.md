@@ -79,4 +79,15 @@ In this project, the purpose is to generate the captions from images. And use th
     </ul>
 </ul>
 <h3> EDA and Cleaning Datasets (Cannot share related code and data)</h3>
-<p> In this EDA part, I am just checking duration of audio files in datasets to see their distribution. To get a duration of audio I can use size of the audio array divided by it sample rate. These NECTEC datasets have the lowest duration at 0 seconds and the highest is about 4:26 minutes. Facebook research recommends using audio that has durations of 10-30 seconds. So I keep only audio file that has a duration of 1-30 seconds because I want to keep the amount of audio files in the dataset (with this selection the dataset lose audio files only 1,516 files from many hundred thousand files). And model still work with no problem because Wav2Vec2 need to do masking for every 25ms. So 1 seconds audio still fine. </p>
+<p> In this EDA part, I am just checking the duration of audio files in datasets to see their distribution. To get the duration of audio I can use size of the audio array divided by its sample rate. These NECTEC datasets have the lowest duration at 0 seconds and the highest is about 4:26 minutes. And the transcription consists of Thai and English characters also some digits. </p>
+
+<ul> 
+  In the cleaning part I am doing following this list 
+  <li> Delete the error audio files, fix mispell or wrong word (if see), fix number </li>
+  <li> Select only audio that has the durations of 10-30 seconds </li>
+  <li> Fix Thai word that using ๆ </li>
+  <li> Check abbreviation </li>
+  <li> Clean special characters </li>
+  <li> Verify correctness of dataset </li>
+</ul>
+<p> Facebook research recommends using audio that has durations of 10-30 seconds. So I keep only audio file that has a duration of 1-30 seconds because I want to keep the amount of audio files in the dataset (with this selection the dataset lose audio files only 1,516 files from many hundred thousand files). And model still works with no problem because Wav2Vec2 need to do masking for every 25ms. So audio 1 second is still fine. In this part, I will get a dataset that has attributes of a path to audio and transcription which audios have a duration in range of 1 to 30 seconds. </p>
