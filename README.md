@@ -183,3 +183,7 @@ First, What is Triton Server? Triton Inference Server is an open source inferenc
 To deploy model on Triton Server we need to have NVIDIA Container Toolkit which requires NVIDIA Drivers. Then prepared ONNX model and config file that was written in Triton Server format. Also preprocessing and postprocessing can add to Triton Server. All of models and pre/post processing we have on Triton it called ensemble models. The Triton Server can receive and respond to requests with HTTP or GRPC. Which is GRPC faster at inference than HTTP because it uses protocol buffers (Protobuf) that simple, small, and faster than JSON or XML.
 
 ### Create API with FastAPI + Docker (also implement VAD and noise reduction)
+<div align="center">
+  <h3> How this API work </h3>
+  <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/Slide1.jpg?alt=media&token=b3ef65c0-ebc7-4416-a015-b44f774001ea">
+</div>
