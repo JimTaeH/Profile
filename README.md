@@ -194,7 +194,7 @@ This is a simple API for transcribing audio files into text transcription. Start
 (Optional) if audio file have noise. Client can do noise reduction before send audio data to inference server. using noisereduce library (know this because this blog [สู่ความเงียบสงัด EP.2: เริ่มต้นเขียน Noise Cancellation อย่างง่ายด้วยภาษา Python](https://medium.com/super-ai-engineer/%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%87%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%AA%E0%B8%87%E0%B8%B1%E0%B8%94-ep-2-%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-noise-cancellation-%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2-python-e598304cee5f))   
 
 Triton Server receives data from the client and starts preprocessing to create input values. Then feed input values into model to calculate output. Finally send output to postprocessing for decode-to-text transcription and response back to the client. Client will send text transcription to the user.
-### Example
+### Example: Transcribe via audio file upload
 This is the first audio file in video.  
 
 https://github.com/JimTaeH/Profile/assets/60215727/473666cb-dfb7-4d60-a2cd-42458cacd477  
@@ -209,6 +209,14 @@ https://github.com/JimTaeH/Profile/assets/60215727/5a3c846b-e8d5-4f24-bb80-06720
 
 Demo video  
 
-https://github.com/JimTaeH/Profile/assets/60215727/2dc8c1a8-ed5d-4863-93d8-699cfb0c6c81
+https://github.com/JimTaeH/Profile/assets/60215727/2dc8c1a8-ed5d-4863-93d8-699cfb0c6c81  
 
+
+### Realtime speech transribe
+I am using pyaudio to create streaming input from microphone. By receiving audio chunks and keeping them in frames. With my config 1 frame will have 3 seconds of audio. Then sending frames to Triton Server to transcribe and responses in realtime. However, the model in this video is the first version so the performance looks poor. VAD can also help when doing real time transcribing but it is still under implementation.
+
+### Example: Transcribe via input from microphone
+
+
+https://github.com/JimTaeH/Profile/assets/60215727/3e9c1995-81c5-482e-84bb-b92a470e9c59
 
