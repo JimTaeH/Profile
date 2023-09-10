@@ -175,3 +175,7 @@ We must install all of the following on the host machine to create API with dock
 * [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#docker) Follow this documentation (But you can skip that setting up docker because we already installed that.)
 * [Download PyTorch (.whl) (Optional)](https://download.pytorch.org/whl/torch/) Because sometimes it has a network error when installing Torch which is a big file size. To fix it I recommend downloading the .whl file and installing from locally. (Version: torch-2.0.1+cu118-cp38-cp38-linux_x86_64.whl)
 
+### Convert Model to ONNX format
+ONNX is the Open Neural Network Exchange Format which is designed to represent any type of Machine Learning and Deep Learning model. With this ONNX our model will be easy to deploy on any machine. And PyTorch has a function that support to convert model to ONNX called ```torch.onnx.export``` [Example here](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html).
+
+### Deploying on Triton Server
