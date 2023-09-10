@@ -113,3 +113,31 @@ In this project, the purpose is to generate the captions from images. And use th
   <li> do_normalize: Whether the input should be zero-mean-unit-variance normalized or not. Usually, speech models perform better when normalizing the input </li>
   <li> return_attention_mask: Whether the model should make use of an attention_mask for batched inference. </li>
 </ul>
+
+<h3> Create features for input to Model </h3>
+<p> The audio data must be converted to input values for use as input to the model. Also, transcription must be converted to label ids for using as answers for calculating loss and WER, CER. To convert the datasets I have to read all audio files and keep it array and sample rate in the datasets. Then using feature extractor to extract the input values and keep them in datasets. And transcription uses tokenizer to convert. </p>
+
+<h3> Download and config pretrained model </h3>
+<p> Load pretrained model Wav2Vec2 from Hugging Face Hub using following code </p>
+<code>
+from transformers import Wav2Vec2Processor
+processor = Wav2Vec2Processor.from_pretrained(processor_path)
+<br/>
+from transformers import Wav2Vec2ForCTC
+model = Wav2Vec2ForCTC.from_pretrained(
+    pretrained_model_path,
+    attention_dropout=0.1,
+    hidden_dropout=0.1,
+    feat_proj_dropout=0.0,
+    mask_time_prob=0.05,
+    layerdrop=0.1,
+    ctc_loss_reduction="mean",
+    pad_token_id=processor.tokenizer.pad_token_id,
+    vocab_size=len(processor.tokenizer),
+    ignore_mismatched_sizes=True,
+)
+model.freeze_feature_encoder()
+model.gradient_checkpointing_enable()
+model.config.ctc_zero_infinity = True
+</code>
+<p> The code same as the Hugging Face blog post except for model.gradient_checkpointing_enable() and model.config.ctc_zero_infinity = True. because these two configs help to reduce memory usage when training and protect vanishing loss. </p>
