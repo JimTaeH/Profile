@@ -76,6 +76,7 @@ In this project, the purpose is to generate the captions from images. And use th
       <li> Example: Transcribe via input from microphone </li>
     </ul>
 </ul>
+<h2> Fine-tuning Wav2Vec2 </h2>
 <h3> EDA and Cleaning Datasets (Cannot share related code and data)</h3>
 <p> In this EDA part, I am just checking the duration of audio files in datasets to see their distribution. To get the duration of audio I can use size of the audio array divided by its sample rate. These NECTEC datasets have the lowest duration at 0 seconds and the highest is about 4:26 minutes. And the transcription consists of Thai and English characters also some digits. </p>
 
@@ -160,3 +161,5 @@ model.config.ctc_zero_infinity = True
 
 <h3> Resume training </h3>
 <p> Just load the model and optimizer state dict and set how many epochs to continue. Then follow the same steps and code in the first train and validation loop. </p>
+
+<h2> Make an API Service </h2>
