@@ -164,7 +164,7 @@ model.config.ctc_zero_infinity = True
 <p> Just load the model and optimizer state dict and set how many epochs to continue. Then follow the same steps and code in the first train and validation loop. </p>
 
 <h3> Create n-grams language model to improve performance </h3>
-<p> You can follow this link to see example and how to <a href="https://colab.research.google.com/drive/1Wvl50XiA9-gVlr2snQEuPC-3GRbRxOGf?usp=sharing"> Create N-grams LanguageModel (Colab) </a>. The language model that we get from this part is in .arpa format which is building using KenLM program. We can convert this to .bin for more memory savings and compatible to run on any environment. </p>
+<p> You can follow this link to see example and how to <a href="https://colab.research.google.com/drive/1Wvl50XiA9-gVlr2snQEuPC-3GRbRxOGf?usp=sharing"> Create N-grams LanguageModel (Colab) </a>. The language model that we get from this part is in .arpa format which is building using KenLM program. We can convert this to .bin for more memory savings and compatible to run on any environment. And this LM can work with Wav2Vec2 when decoder by receiving the logits output into LM to improve the correctness of transcription (By the way it is just in terms of word frequency).</p>
 
 ## Make an API Service
 ### Prerequisite
