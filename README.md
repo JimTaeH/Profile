@@ -194,3 +194,8 @@ This is a simple API for transcribing audio files into text transcription. Start
 (Optional) if audio file have noise. Client can do noise reduction before send audio data to inference server. using noisereduce library (know this because this blog [สู่ความเงียบสงัด EP.2: เริ่มต้นเขียน Noise Cancellation อย่างง่ายด้วยภาษา Python](https://medium.com/super-ai-engineer/%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%87%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%AA%E0%B8%87%E0%B8%B1%E0%B8%94-ep-2-%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-noise-cancellation-%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2-python-e598304cee5f))   
 
 Triton Server receives data from the client and starts preprocessing to create input values. Then feed input values into model to calculate output. Finally send output to postprocessing for decode-to-text transcription and response back to the client. Client will send text transcription to the user.
+### Example
+<audio controls>
+  <source src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/COF001_Pa001_001.mp3?alt=media&token=725e1ab1-8536-4922-8c7f-00849766e9ae" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
