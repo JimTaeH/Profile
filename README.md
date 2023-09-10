@@ -186,7 +186,8 @@ To deploy model on Triton Server we need to have NVIDIA Container Toolkit which 
 <div align="center">
   <p> How this API work </p>
   <img width="840" hight="460" align="center" src="https://firebasestorage.googleapis.com/v0/b/second-try-cb-pirwud.appspot.com/o/Slide1.jpg?alt=media&token=b3ef65c0-ebc7-4416-a015-b44f774001ea">
-</div>
+</div>   
+
 This is simple API for transcribe audio file into text transcription. Start by user upload audio file to the client. Then client will keep audio file as bytes data to keep it in memory (in RAM). Using torchaudio to open audio data. Client will get array of audio data and sample rate. If sample rate of audio more than 16kHz client will reset to 16kHz. Finally send all data to Triton Server for inference.   
 
 (Optional) if user want to upload large audio file e.g. file that has duration more than 30 minutes. Client can do VAD (Voice Activity Detection) to split into small part. And iterable send these small part to Triton Server (Using this model [Silero VAD](https://github.com/snakers4/silero-vad/tree/master)).   
